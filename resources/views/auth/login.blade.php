@@ -51,6 +51,21 @@
                 <x-primary-button class="ml-3">
                     {{ __('Log in') }}
                 </x-primary-button>
+
+            </div>
+
+            <div class='text-center mt-4'>
+                <p>Or login with</p>
+                {{-- icon social media --}}
+                <a href="{{ route('auth.facebook') }}">
+                <i class="bi bi-facebook" style="color:blue;font-size:30px; margin:5px"></i>
+                </a>
+                <a href="{{ route('auth.google') }}">
+                <i class="bi bi-google" style="color:red;font-size:30px; margin:5px"></i>
+                </a>
+                <a href="{{ route('auth.github') }}">
+                <i class="bi bi-github" style="color:grey;font-size:30px; margin:5px"></i>
+                </a>
             </div>
         </form>
     </x-auth-card>
