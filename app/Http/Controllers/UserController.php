@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\UsersDataTable;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -14,11 +15,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(UsersDataTable $dataTable)
     {
-        $users = User::all();
+        // $users = User::all();
         $menuUsers = 'active';
-        return view('users.index_user', compact('menuUsers', 'users'));
+        return $dataTable->render('users.index_user', compact('menuUsers'));
     }
 
     /**

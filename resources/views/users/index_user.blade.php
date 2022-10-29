@@ -18,7 +18,11 @@
                         <button class='btn btn-primary'> Tambah </button>
                     </a>
                 </div>
-                <table class='table'>
+
+                {{ $dataTable->table() }}
+
+
+                {{-- <table class='table'>
                     <thead>
                         <tr>
                             <th>No</th>
@@ -56,7 +60,7 @@
                             <tr> <td colspan='4'>Tidak ada data</td></tr>
                         @endforelse
                     </tbody>
-                </table>
+                </table> --}}
 
               </div>
             </div>
@@ -67,3 +71,7 @@
     </div>
   </div>
   @endsection
+
+  @push('scriptjs')
+    {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
+@endpush
