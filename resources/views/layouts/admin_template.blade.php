@@ -131,7 +131,7 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item @if (isset($menuDashboard)) {{ $menuDashboard }} @endif">
+            <li class="menu-item {{ $menuDashboard ?? '' }}">
               <a href="{{ route('dashboard') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
@@ -142,7 +142,21 @@
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Pages</span>
             </li>
-            <li class="menu-item @if (isset($menuUsers)) {{ $menuUsers }} @endif">
+            <li class="menu-item {{ $menuCategory ?? '' }}">
+                <a href="{{ route('categories.index') }}" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-setting-circle"></i>
+                  <div data-i18n="Account Settings">Category</div>
+                </a>
+              </li>
+
+              <li class="menu-item {{ $menuPost ?? '' }}">
+                <a href="{{ route('posts.index') }}" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-setting-circle"></i>
+                  <div data-i18n="Account Settings">Post</div>
+                </a>
+              </li>
+
+            <li class="menu-item {{ $menuUsers ?? '' }} ">
               <a href="{{ route('users.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user-circle"></i>
                 <div data-i18n="Account Settings">Users</div>
@@ -327,6 +341,9 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+
 
     @stack('scriptjs')
   </body>
